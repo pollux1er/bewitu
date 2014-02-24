@@ -1,0 +1,79 @@
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;margin:0;padding:0;}
+body {background-color: #FFFFFF;}
+body, table, td, .normaltext {font: 14px Arial;color: #000000;}
+a:link, a:visited, a:hover, a:active {color: #0033CC;}
+a:hover {background-color: #D8F0FF;}
+form {margin: 0;}
+#pagecontainer {width: 1000px;margin-left: auto;margin-right: auto;}
+#logo {font: 47px Arial;letter-spacing: -3px;}
+#logo a {text-decoration: none;}
+#logo a:hover {text-decoration: underline;}
+#logo .partie1 {color: #0033CC;}
+#logo .partie2 {color: #000;}
+#logo .partie3 {color: #FF0F7D;}
+#logotext {font: 24px Arial;letter-spacing: -1px;margin-bottom: 10px;}
+#logopresentation {}
+a.link1 {font: 24px Arial;color: #000000;text-decoration: none;}
+a.link1:hover {text-decoration: underline;}
+#login {text-align: right;float: right;display: inline-block;}
+#navlinks {margin-top: 5px;margin-bottom: 5px;}
+#menublock, #profileblock, #quickprofiles, #header, #standardblock, #forumnav {border: 1px solid #C0C0C0;margin-bottom: 15px;padding: 5px;}
+#forumnav {margin-right: 5px;}
+#forumnav a{text-decoration: none;color: #000000;}
+#forumnav a:hover{text-decoration: underline;}
+#quote {border: 1px solid #C0C0C0;margin-bottom: 5px;padding: 5px;background-color: #F3F3F3;width: 90%;margin-left: auto;margin-right: auto;}
+#blocphoto {border: 1px solid #C0C0C0;padding: 5px;background-color: #EBF1F1;}
+#menulinks p, #bloglink p, #picsblock p, #friendspics p, #friendpicitem p, #commentitem p, #quickprofile p, #quickprofilelarge p, #quickprofilenarrow p, #partiedroite p {display: block;margin: 0;}
+#photonav {display: inline-block;float: right;width: 140px;height: 600px;overflow: auto;}
+#photos_profil_nav {display: block;width: 100%;clear: left;}
+#left_arrow_on, #left_arrow_off, #right_arrow_on, #right_arrow_off {display: inline-block;border: 1px solid #C0C0C0;height: 116px;padding: 2px;}
+#left_arrow_off, #right_arrow_off {border: 1px solid #FFFFFF;}
+#left_arrow_on, #right_arrow_on {cursor: pointer;}
+#quickprofile {border: 1px solid #C0C0C0;display: block;padding: 5px;margin-bottom: 15px;margin-left: 15px;margin-right: 15px;}
+#quickprofilelarge {border: 1px solid #C0C0C0;display: block;margin-bottom: 5px;padding: 5px;}
+#quickprofilenarrow {border: 1px solid #C0C0C0;display: inline-block;margin-bottom: 5px;margin-right: 5px;padding: 5px;text-align: center;}
+#quickprofilepic {margin-right: 10px;}
+#title {font: 18px Arial;margin-bottom: 0px;letter-spacing: -1px;}
+#title_discussion {font: 24px Arial;margin-bottom: 0px;letter-spacing: -1px;font-weight: bold;}
+#soustitre {font: 18px Arial;letter-spacing: -1px;}
+#basicinfos img {float: left;margin-right: 20px;margin-bottom: 10px;}
+#basicinfos ul, #basiclinks ul, #forumlinks ul {margin: 0px;padding: 0px;}
+#basicinfos ul li, #basiclinks ul li, #forumlinks ul li {display: block;list-style-type: none;}
+#bloglink {display: block;clear: left;margin-top: 0;text-align: left;}
+#picsblock img, #friendpicitem img, #friendpicitem_noavatar img, #commentitem img, #basicinfos img, #quickprofilepick img, #quickprofile img, #quickprofilelarge img, #quickprofilenarrow img, #photonav img, .standardtable img, #photos_profil_nav img, .forumtable img, .forumtable3 img {border: 1px solid #C0C0C0;}
+#friendspics, #commentitem {display: block;clear: left;}
+#friendpicitem, #friendpicitem_noavatar, #commentpic, #quickprofilepic {display: inline-block;text-align: center;font: 12px Arial;float: left;}
+#friendpicitem {margin-right: 3px;margin-bottom: 3px;}
+#friendpicitem_noavatar {margin-right: 3px;margin-bottom: 6px;}
+#friendpicitem_noavatar {border: 1px solid #C0C0C0;width: 80px;height: 80px;}
+#commentpic {margin-right: 10px;margin-bottom: 5px;}
+#commenttext {display: inline-block;}
+#filler {clear: both;}
+#partiegauche {width: 375px;display: inline-block;float: left;}
+#partiedroite {max-width: 350px;display: inline-block;}
+#bigspacer {margin: 10px;}
+.forumcontainer {padding: 0px;spacing: 0px;margin: 0px;border: 0px;width: 100%;}
+.forumtable {margin-bottom: 15px;border: 1px solid #C0C0C0;border-collapse: collapse;width: 100%;}
+.forumtable td {border: 1px solid #C0C0C0;padding: 10px;}
+.forumtable2 {margin-bottom: 15px;border: 1px solid #C0C0C0;border-collapse: collapse;width: 100%;}
+.forumtable2 td {padding: 5px;}
+.forumtable3 {margin: 0px;margin-bottom: 5px;border: 1px solid #C0C0C0;border-collapse: collapse;width: 100%;}
+.forumtable3 td {border: 1px solid #C0C0C0;padding: 5px;}
+.modtable {margin-top: 15px;margin-bottom: 15px;border: 1px solid #C0C0C0;border-collapse: collapse;width: 100%;}
+.modtable td {border: 1px dotted #808080;padding: 5px;}
+.standardtable {margin: 0;border-left: 1px solid #FFFFFF;border-right: 1px solid #FFFFFF;border-bottom: 1px solid #FFFFFF;border-collapse: collapse;width: 100%;}
+.standardtable td {border: 1px dotted #808080;padding: 5px;}
+.strippedtable, .strippedtable td {border: 0;margin: 0;padding: 0;border-collapse: collapse;	}
+.separator2 {margin-left: 1px;margin-right: 1px;}
+.recherche {margin-top: 5px;margin-bottom: 0px;text-align: left;}
+.descriptor {font-weight: bold;}
+.erreurs {color: #FF0000;}
+.erreurs2 {color: #0033CC;}
+.hidden {display: none;}
+.noborder {border: 0px solid #FFFFFF;}
+.smallfont {font: 14px Arial;}
+.smallfont2 {font: 11px Arial;}
+.smallfont3 {font: 10px Arial;}
+.hrstyle1 {color: #C0C0C0;background-color: #C0C0C0;height: 1px;width: 100%;border: 0;}
+a.greylink:link, a.greylink:visited, a.greylink:active, a.greylink:hover {color: #000000;}
+.highlight {background-color: #FFFF00;}
