@@ -12,14 +12,9 @@ class Page extends CI_Controller {
 			// Whoops, we don't have a page for that!
 			show_404();
 		}
-		$this->load->model('user');
-		$this->user->update_last_activity();
-		$this->nbusers = $this->user->count_users();
-		$this->onlineusers = $this->user->count_connected();
-		
+
 		$data['title'] = ucfirst($page); // Capitalize the first letter
-		$data['all'] = $this->nbusers;
-		$data['online'] = $this->onlineusers;
+		
 		$this->load->helper('url');
 		$this->load->helper('html');
 		$this->load->view('templates/header', $data);

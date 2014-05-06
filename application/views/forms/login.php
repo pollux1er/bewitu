@@ -3,14 +3,14 @@
 <br>
 <?php
 	
-	echo form_open('form/login');
+	echo form_open('forms/login');
 	
 	echo form_fieldset('Informations de Connexion');
 	
 	echo form_label('Login ou Email', 'username');
 	
 	echo form_input('username', '');
-	echo '<br />';
+	
 	echo form_label('Mot de passe', 'password');
 	
 	echo form_password('password', '');

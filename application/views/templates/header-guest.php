@@ -1,29 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//FR" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 <head>
-	<title><?php echo $title; ?></title>
+	<title>Site de rencontre 100% gratuit : BeWitU.com</title>
 	<?php
-		$d1 = '';
-		if(isset($profile)) { 
-			if($profile->sexuality == 'hetero' && $profile->sex == 'Homme ')
-				$d1 = 'Homme cherche Femme, ';
-			else
-				$d1 = 'Femme cherche Homme, ';
-		}
-		if(isset($description))
-			$texte = $d1 . $description;
-		else
-			$texte = "Site de rencontre gratuit! | BeWitU.com";
-		
-		if(isset($keywords))
-			$keywords = $keywords;
-		else
-			$keywords = "rencontre gratuite, site rencontre, rencontre célibataires, cherche homme, cherche femme, recherche amour, rencontre en ligne";
-			
 		$meta = array(
 				array('name' => 'robots', 'content' => 'no-cache'),
-				array('name' => 'description', 'content' => $texte),
-				array('name' => 'keywords', 'content' => $keywords),
+				array('name' => 'description', 'content' => 'Site de rencontre 100% gratuit!'),
+				array('name' => 'keywords', 'content' => 'rencontre gratuite, site de rencontre gratuit, célibataires, femme cherche homme, homme cherche femme'),
 				array('name' => 'Content-type', 'content' => 'text/html; charset=utf-8', 'type' => 'equiv')
 			);
 
@@ -31,94 +14,55 @@
 	?>
 	
 	<META NAME="CLASSIFICATION" CONTENT="rencontre, celibataire, homme cherche femme, amour, amitie, couple, relation, ame soeur">
-	<?php //echo meta('description', 'Site de rencontre 100% gratuit!'); ?>
+	<?php echo meta('description', 'Site de rencontre 100% gratuit!'); ?>
 	<?php echo link_tag('css/main.css'); ?>
 	<link REL="SHORTCUT ICON" HREF="<?php echo base_url();?>favicon.ico" type="image/x-icon" />
 </head>
 
 
 <body id="jecontact"><div id="pagecontainer">
-<div id="menublock">
-	<h1><strong><span id="logo"><a href="<?php echo base_url();?>"><span class="partie1">Be</span><span class="partie2">wit</span><span class="partie3">U</span></a></span>
-	</strong></h1><div></div><h1><strong><span id="logotext"><a class="link1" href="<?php echo base_url();?>">Site de rencontre gratuit.</a>
-	</span>
-	</strong></h1><div id="logopresentation">
-	BeWitU.com est un site de rencontre gratuit pour les célibataires qui désirent trouver l'amour, l'âme soeur, créer de nouvelles amitiés, ou simplement pour un dial sur le chat et forums de discussions! Le fonctionnement est simple: vous créez votre petite annonce, puis vous contactez les célibataires avec qui vous avez une affinité amoureuse ou amicale. Si vous êtes une personne qui cherche le véritable amour de sa vie, une relation sérieuse, la drague, la séduction ou une simple amitié, ce site s'adresse à vous. N'oubliez pas que ce site de rencontre est vraiment 100% gratuit, donc vous n'avez rien à perdre!
+	<div id="menublock">
+		<h1><strong><span id="logo"><a href="<?php echo base_url();?>"><span class="partie1">Be</span><span class="partie2">wit</span><span class="partie3">U</span></a></span>
+		</strong></h1><div></div><h1><strong><span id="logotext"><a class="link1" href="<?php echo base_url();?>">Site de rencontre gratuit.</a>
+		</span>
+		</strong></h1><div id="logopresentation">
+		BeWitU.com est un site de rencontre gratuit pour les célibataires qui désirent trouver l'amour, l'âme soeur, créer de nouvelles amitiés, ou simplement pour un dial sur le chat et forums de discussions! Le fonctionnement est simple: vous créez votre petite annonce, puis vous contactez les célibataires avec qui vous avez une affinité amoureuse ou amicale. Si vous êtes une personne qui cherche le véritable amour de sa vie, une relation sérieuse, la drague, la séduction ou une simple amitié, ce site s'adresse à vous. N'oubliez pas que ce site de rencontre est vraiment 100% gratuit, donc vous n'avez rien à perdre!
+		</div>
 	</div>
-</div>
-
-<?php if(isset($validation)) {
-	if(!$validation) {?>
-<div id="standardblock" style="background-color: #FFE1E1; border:1px solid #FF0000;">
-	<div id="title">
-	<?php echo $this->session->userdata('pseudo'); ?>, votre email n'est pas encore confirme!
-	</div>
-	Si vous validez votre email, vous pourrez ecrire aux membres et augmenterez considérablement vos chances de faire de nouvelles rencontres.<br>
-	Si vous n'avez toujours pas recu le mail d'activation, cliquez ici : <a href="<?php echo base_url('form/revalidate'); ?>">Renvoyer l'email d'activation</a>
-</div>
-<?php } } ?>
 
 <div id="menublock">
-	<div id="title">
-	Votre Menu</div>
 	<div id="menulinks">
-	<a href="<?php echo base_url(); ?>">Accueil</a>	<span class="separator"> | </span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Inscription Gratuite</a><span class="separator"> | </span>
-	<a href="<?php echo base_url('form/login'); ?>">Se connecter</a><span class="separator"> | </span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Messages Privés</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Votre profil</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Ils ont vu votre profil</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Ils ont voté pour vous</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Vos favoris</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Vos amis</a>
-	
-	
-	<br>
-	<a href="<?php echo base_url(); ?>">Témoignages</a><span class="separator"> |</span>
-	<a href="<?php echo base_url('form/inscription_upload_image');?>">Ajouter photos</a>
-	<span class="separator"> |</span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Modifier votre profil</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Votre entrevue</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url(); ?>">Forum</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('validation/photo'); ?>">Modérer photos</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('aide'); ?>">Aide</a>
-	<span class="separator">|</span>
-	<a href="<?php echo base_url('form/inscription'); ?>">Editer votre compte</a>
+		<a href="<?php echo base_url();?>">Accueil</a><span class="separator">&nbsp;&nbsp;|</span>
+		<a href="<?php echo base_url();?>form/inscription">Inscription Gratuite</a><span class="separator">&nbsp;|</span>
+		<a href="<?php echo base_url();?>temoignages/temoignages-de-rencontre/1.html">Témoignages</a><span class="separator">&nbsp;|</span>
+		<a href="<?php echo base_url();?>forum">Forum</a><span class="separator">&nbsp;|</span>
+		<a href="<?php echo base_url();?>modererphotos.php">Modérer photos</a><span class="separator">&nbsp;|</span>
+		<a href="<?php echo base_url();?>aide.php">Aide</a>
 	</div>
 </div>
-
 <div id="menublock">
 <h2><span id="title">Recherche rencontre</span></h2>
 <div id="menulinks">
 <p>
-<a href="<?php echo base_url('users/list_latest');?>">Nouveaux inscrits</a>
+<a href="<?php echo base_url();?>usagers/nouveaux-inscrits-pour-rencontre/1.html">Nouveaux inscrits</a>
 <span class="separator">&nbsp;|</span>
-<a href="<?php echo base_url('users/list_latest/women');?>">Cherche Femme</a>
+<a href="<?php echo base_url();?>usagers/cherche-femme/1.html">Cherche Femme</a>
 <span class="separator">&nbsp;|</span>
-<a href="<?php echo base_url('users/list_latest/men');?>">Cherche Homme</a>
+<a href="<?php echo base_url();?>usagers/cherche-homme/1.html">Cherche Homme</a>
 <span class="separator">&nbsp;|</span>
-<a href="<?php echo base_url();?>">Top look femmes</a>
+<a href="<?php echo base_url();?>top-look-femmes-afrique/1.html">Top look femmes</a>
 <span class="separator">&nbsp;|</span>
-<a href="<?php echo base_url();?>">Top look hommes</a>
-<br>(<span title="6 316 Membres et 1 893 Invités"><?php echo $online ?></span>) <a href="<?php echo base_url();?>usagers/en-ligne-pour-rencontre/1.html">En ligne</a>
+<a href="<?php echo base_url();?>top-look-hommes-afrique/1.html">Top look hommes</a>
+<br>(<span title="6 316 Membres et 1 893 Invités">8 209</span>) <a href="<?php echo base_url();?>usagers/en-ligne-pour-rencontre/1.html">En ligne</a>
 <span class="separator">&nbsp;|</span>
-(72 449) <a href="<?php echo base_url();?>">Connectés dernières 24h</a>
+(72 449) <a href="<?php echo base_url();?>connectes-dernieres-24h.php">Connectés dernières 24h</a>
 <span class="separator">&nbsp;|</span>
-(<?php echo $all; ?> membres)
+(1 652 329 membres)
 <span class="separator">&nbsp;|</span>
-<a href="<?php echo base_url();?>">Recherche avancée</a>
+<a href="<?php echo base_url();?>recherche_avancee.php">Recherche avancée</a>
 </p>
 <p>
-</p><form class="recherche" action="<?php echo base_url();?>" method="POST" name="recherche">
+</p><form class="recherche" action="<?php echo base_url();?>recherche_process.php" method="POST" name="recherche">
 <input type="hidden" value="chercher" name="action">
 Recherche
 
@@ -161,4 +105,9 @@ Avec photo: <select size="1" name="rech_avatar">
 </form>
 <p></p>
 </div>
+</div>
+<div id="standardblock">
+	<center>
+
+	</center>
 </div>
