@@ -41,6 +41,15 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 $route['form/(:any)'] = "forms/$1";
+$route['profile/(:any)'] = "profile/view_profile/$1";
+$route['message/(:any)'] = "profile/message/$1";
+$route['users/(:any)'] = "profile/$1/$2";
+$route['update_profile/(:any)'] = "profile/update_profile/$1";
+$route['profile/(:any)/(:any)'] = "profile/$1/$2";
+$route['photos/(:any)/(:any)'] = "profile/photos/$1/$2";
+$route['user/(:any)'] = "forms/$1";
+$route['validation/(:any)/(:any)'] = "validation/$1/$2";
+$route['validation/(:any)'] = "validation/$1";
 $route['(:any)'] = "page/pages/$1";
 
 

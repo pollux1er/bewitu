@@ -23,9 +23,32 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->helper('html');
-		$this->load->view('templates/header');
-		$this->load->view('welcome_page');
-		$this->load->view('templates/footer');
+		$this->load->model('user'); 
+		$this->user->update_last_activity();
+		$this->nbusers = $this->user->count_users();
+		$this->onlineusers = $this->user->count_connected();
+		$data = array();
+		
+		$members = $this->user->get_home_members();
+		
+		$data['members'] = $members;
+		
+		$data['all'] = $this->nbusers;		
+		$data['online'] = $this->onlineusers;		
+		
+		$data['title'] = "Site de Rencontre - BeWitU.com";
+		
+		//$data['profiles'] = $this->user->get_last_with_photo();
+		
+		if($this->user->check_session()) {
+			$this->load->view('templates/header', $data);
+			if(!$this->user->check_activated())
+				$data['validation'] = false;
+		} else
+			$this->load->view('templates/header-guest', $data);
+			
+		$this->load->view('welcome_page', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }
 
