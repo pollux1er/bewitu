@@ -83,17 +83,15 @@ class Forms extends CI_Controller {
 		$this->form_validation->set_rules('pseudo', 'Pseudo', 'trim|required|min_length[5]|max_length[12]|is_unique[users.pseudo]', 'Votre pseudo est necessaire...');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[password2]', 'Vous devez fournir un mot de passe');
 		$this->form_validation->set_rules('password2', 'Password Confirmation', 'trim|required', 'Le mot de passe doit etre confirme');
-		$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email|is_unique[users.email]', 'Votre adresse email est incorrecte ou deja utilisee.');
+		$this->form_validation->set_rules('email', 'Email Address', 'trim|required|valid_email|is_unique[users.email]', 'Votre adresse email est incorrecte.');
 		$this->form_validation->set_rules('description', 'Description', 'trim|required|xss_clean', 'Essayez de vous decrire en quelques lignes...');
 		$this->form_validation->set_rules('sex', 'Sexe', 'required', 'Vous devez preciser votre genre');
 		$this->form_validation->set_rules('title', 'Titre ou Slogan', 'required');
-		$this->form_validation->set_rules('region', 'Region', 'required');
-		$this->form_validation->set_rules('ville', 'Ville', 'required');
 		$this->form_validation->set_rules('conditions1', 'Termes et conditions', 'callback_accept_terms');
 		
 		$data['title'] = 'BeWitU.com - Inscription (Etape 1)';
-		//$data['country'] = $this->user->get_user_country(); 
-		$data['country'] = "CAMER"; 
+		$data['country'] = $this->user->get_user_country(); 
+		//$data['country'] = "CAMER"; 
 		$data['all'] = $this->nbusers;
 		$data['online'] = $this->onlineusers;
 		$this->load->view('templates/header-guest', $data);
@@ -188,6 +186,7 @@ class Forms extends CI_Controller {
 									'height_cm' => $this->input->post('cm'),
 									'weight' => $this->input->post('weight'),
 									'appearance' => $this->input->post('appearance'),
+									'hobbies' => $this->input->post('passetemps'),
 									);
 				$result = $this->user->save_user_profile($user_data);
 				
@@ -416,6 +415,13 @@ class Forms extends CI_Controller {
 	{
 		$this->load->model('user');
 		$this->user->delete_picture($id);
+		redirect( base_url() . 'form/inscription_upload_image' );
+	}
+	
+	public function default_picture($id)
+	{
+		$this->load->model('user');
+		$this->user->default_picture($id);
 		redirect( base_url() . 'form/inscription_upload_image' );
 	}
 	

@@ -17,10 +17,10 @@ foreach($members as $member) {
 	else
 		$member->civil_status = 'marié ';
 	
-	if($member->sexuality == 'male')
-		$member->sexuality = 'homme ';
-	else if ($member->sexuality == 'female')
+	if($member->sexuality == 'hetero' && $member->sex == 'Homme ')
 		$member->sexuality = 'femme ';
+	else if ($member->sexuality == 'hetero' && $member->sex == 'Femme ')
+		$member->sexuality = 'homme ';
 	else
 		$member->sexuality = 'homme ou femme ';
 	

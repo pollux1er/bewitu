@@ -1,5 +1,6 @@
 <?php
 //var_dump($members);
+//var_dump($this->session->userdata);
 foreach($members as $member) {
 	if($member->sex == 'm')
 		$member->sex = 'Homme ';

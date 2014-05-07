@@ -121,7 +121,7 @@ div.overlay {
 			Cette photo fait maintenant parti de votre profile. Merci.<br><br>
 			Notez que nous nous réservons le droit de supprimer toute photo qui se fait signaler par un membre si celle ci n'est pas en conformité avec nos règles. Vous pouvez si vous le desirez, la mettre comme photo par defaut de votre profil.
 			<br><br><br><br><br>
-				<a href="<?php echo base_url('/' . $pic->id); ?>">Photo par defaut de votre profil</a>
+				<a href="<?php echo base_url('form/default_picture/' . $pic->id); ?>">Photo par defaut de votre profil</a>
 			</td>
 	<?php } ?>
 	</tr>

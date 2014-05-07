@@ -1,5 +1,5 @@
 <?php 
-//var_dump($profile); 
+var_dump($profile); 
 ?>
 <div id="standardblock">
 <div id="title">
@@ -14,47 +14,89 @@ Les questions marquées d'un astérisque* sont obligatoires. Toutes les autres q
 <tbody><tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Genre*:</span></td>
 <td align="left">
-<input type="radio" name="ins_genre" value="1" checked=""> Homme 
-<input type="radio" name="ins_genre" value="2"> Femme</td>
+<input type="radio" name="sex" value="m" <?php if($profile->sex == 'm') echo 'checked'; ?> > Homme 
+<input type="radio" name="sex" value="f" <?php if($profile->sex == 'f') echo 'checked'; ?> > Femme</td>
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Orientation sexuelle*:</span></td><td align="left">
-<input type="radio" name="ins_orientation" value="1" checked=""> Hétérosexuel(le)<br>
-<input type="radio" name="ins_orientation" value="2"> Homosexuel(le)<br>
-<input type="radio" name="ins_orientation" value="3"> Bisexuel(le)<br>
+<input type="radio" value="female" name="sexuality" <?php if($profile->sexuality == 'female') echo 'checked'; ?>> Une femme<br>
+		<input type="radio" value="male" name="sexuality" <?php if($profile->sexuality == 'male') echo 'checked'; ?>> Un homme<br>
+		<input type="radio" value="both" name="sexuality" <?php if($profile->sexuality == 'both') echo 'checked'; ?>> Les deux<br>
 </td>
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Ici pour*:</span></td><td align="left">
-<input type="radio" name="ins_but" value="1"> Rencontre sérieuse<br>
-<input type="radio" name="ins_but" value="2"> Rencontre éphémère<br>
-<input type="radio" name="ins_but" value="3" checked=""> Rencontre amicale<br>
+<input type="radio" value="rs" name="looking_for" <?php if($profile->looking_for == 'rs') echo 'checked'; ?>> Rencontre sérieuse<br>
+		<input type="radio" value="re" name="looking_for" <?php if($profile->looking_for == 're') echo 'checked'; ?>> Rencontre éphémère<br>
+		<input type="radio" value="ra" name="looking_for" <?php if($profile->looking_for == 'ra') echo 'checked'; ?>> Rencontre amicale<br>
 </td>
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">État civil*:</span></td><td align="left">
-<input type="radio" name="ins_etatcivil" value="1" checked=""> Célibataire<br>
-<input type="radio" name="ins_etatcivil" value="2"> En relation<br>
-<input type="radio" name="ins_etatcivil" value="3"> Marié(e)<br>
+<input type="radio" name="civil_status" value="single" <?php if($profile->civil_status == 'single') echo 'checked'; ?>> Célibataire<br>
+<input type="radio" name="civil_status" value="couple" <?php if($profile->civil_status == 'couple') echo 'checked'; ?>> En relation<br>
+<input type="radio" name="civil_status" value="married" <?php if($profile->civil_status == 'married') echo 'checked'; ?>> Marié(e)<br>
 </td>
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Date d'aniversaire*:</span></td><td align="left"><select name="ins_jour" size="1">
-<option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option><option value="05">05</option><option value="06">06</option><option value="07">07</option><option value="08">08</option><option value="09">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25" selected="">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25" selected="">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
 <select name="ins_mois" size="1">
-<option value="01">Janvier</option><option value="02" selected="">Février</option><option value="03">Mars</option><option value="04">Avril</option><option value="05">Mai</option><option value="06">Juin</option><option value="07">Juillet</option><option value="08">Août</option><option value="09">Septembre</option><option value="10">Octobre</option><option value="11">Novembre</option><option value="12">Décembre</option></select>
+	<option value="01">Janvier</option>
+	<option value="02" selected="">Février</option>
+	<option value="03">Mars</option><option value="04">Avril</option>
+	<option value="05">Mai</option>
+	<option value="06">Juin</option>
+	<option value="07">Juillet</option>
+	<option value="08">Août</option>
+	<option value="09">Septembre</option>
+	<option value="10">Octobre</option>
+	<option value="11">Novembre</option>
+	<option value="12">Décembre</option>
+</select>
 <select name="ins_annee" size="1">
-<option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984" selected="">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1947">1947</option><option value="1946">1946</option><option value="1945">1945</option><option value="1944">1944</option><option value="1943">1943</option><option value="1942">1942</option><option value="1941">1941</option><option value="1940">1940</option><option value="1939">1939</option><option value="1938">1938</option><option value="1937">1937</option><option value="1936">1936</option><option value="1935">1935</option><option value="1934">1934</option><option value="1933">1933</option><option value="1932">1932</option><option value="1931">1931</option><option value="1930">1930</option><option value="1929">1929</option><option value="1928">1928</option><option value="1927">1927</option><option value="1926">1926</option><option value="1925">1925</option><option value="1924">1924</option><option value="1923">1923</option><option value="1922">1922</option><option value="1921">1921</option><option value="1920">1920</option><option value="1919">1919</option><option value="1918">1918</option><option value="1917">1917</option><option value="1916">1916</option><option value="1915">1915</option><option value="1914">1914</option><option value="1913">1913</option><option value="1912">1912</option><option value="1911">1911</option><option value="1910">1910</option><option value="1909">1909</option><option value="1908">1908</option><option value="1907">1907</option><option value="1906">1906</option><option value="1905">1905</option><option value="1904">1904</option><option value="1903">1903</option><option value="1902">1902</option><option value="1901">1901</option><option value="1900">1900</option></select></td>
+	<option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984" selected="">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1947">1947</option><option value="1946">1946</option><option value="1945">1945</option><option value="1944">1944</option><option value="1943">1943</option><option value="1942">1942</option><option value="1941">1941</option><option value="1940">1940</option><option value="1939">1939</option><option value="1938">1938</option><option value="1937">1937</option><option value="1936">1936</option><option value="1935">1935</option><option value="1934">1934</option><option value="1933">1933</option><option value="1932">1932</option><option value="1931">1931</option><option value="1930">1930</option><option value="1929">1929</option><option value="1928">1928</option><option value="1927">1927</option><option value="1926">1926</option><option value="1925">1925</option><option value="1924">1924</option><option value="1923">1923</option><option value="1922">1922</option><option value="1921">1921</option><option value="1920">1920</option><option value="1919">1919</option><option value="1918">1918</option><option value="1917">1917</option><option value="1916">1916</option><option value="1915">1915</option><option value="1914">1914</option><option value="1913">1913</option><option value="1912">1912</option><option value="1911">1911</option><option value="1910">1910</option><option value="1909">1909</option><option value="1908">1908</option><option value="1907">1907</option><option value="1906">1906</option><option value="1905">1905</option><option value="1904">1904</option><option value="1903">1903</option><option value="1902">1902</option><option value="1901">1901</option><option value="1900">1900</option></select></td>
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Type de physique*:</span></td><td align="left"><select name="ins_poids" size="1">
-<option value="1">Mince</option>
-<option value="2" selected="">Proportionnel</option>
-<option value="3">Athlétique</option>
-<option value="6">Musclé</option>
-<option value="4">Enrobé</option>
-<option value="5">Taille forte</option>
-<option value="7">Handicapé</option>
+<option value="Mince" <?php if($profile->appearance == 'Mince') echo 'selected'; ?>>Mince</option>
+<option value="Proportionnel" <?php if($profile->appearance == 'Proportionnel') echo 'selected'; ?>>Proportionnel</option>
+<option value="Athlétique" <?php if($profile->appearance == 'Athlétique') echo 'selected'; ?>>Athlétique</option>
+<option value="Musclé" <?php if($profile->appearance == 'Musclé') echo 'selected'; ?>>Musclé</option>
+<option value="Enrobé" <?php if($profile->appearance == 'Enrobé') echo 'selected'; ?>>Enrobé</option>
+<option value="Taille forte" <?php if($profile->appearance == 'Taille forte') echo 'selected'; ?>>Taille forte</option>
+<option value="Handicapé" <?php if($profile->appearance == 'Handicapé') echo 'selected'; ?>>Handicapé</option>
 </select></td>
 </tr>
 <script language="Javascript">
@@ -66,7 +108,11 @@ function updatetaille(taille){
 }
 </script>
 <tr>
-<td align="right" width="190" valign="top"><span class="descriptor">Taille*:</span></td><td align="left"><input type="text" name="ins_metres" value="1" size="3" maxlength="2">m <input type="text" name="ins_cm" value="83" size="3" maxlength="2">cm <select name="rapidselect" size="1" onchange="updatetaille(this.value);">
+<td align="right" width="190" valign="top"><span class="descriptor">Taille*:</span></td>
+<td align="left">
+<input type="text" name="height_m" value="<?php echo $profile->height_m; ?>" size="3" maxlength="2">m 
+<input type="text" name="height_cm" value="<?php echo $profile->height_cm; ?>" size="3" maxlength="2">cm 
+<select name="rapidselect" size="1" onchange="updatetaille(this.value);">
 <option value="0">Menu de sélection rapide</option>
 <option value="152">5' 0" (152 cm)</option>
 <option value="155">5' 1" (155 cm)</option>
@@ -97,52 +143,49 @@ function updatetaille(taille){
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Emplacement*:</span></td><td align="left">
-<div id="pagedivpaysdropdown">Pays: <select id="pagepaysdropdown" name="paysdropdown" size="1" onchange="loadxml('pays', this.value, 'page')">
-<option value="">Veuillez choisir</option>
-<option value="FR">France</option><option value="BE">Belgique</option><option value="CH">Suisse</option><option value="CA">Canada</option><option value="AF">Afghanistan</option><option value="ZA">Afrique du Sud</option><option value="AL">Albanie</option><option value="DZ">Algérie</option><option value="DE">Allemagne</option><option value="AD">Andorre</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctique</option><option value="AG">Antigua-et-Barbuda</option><option value="AN">Antilles Néerlandaises</option><option value="SA">Arabie Saoudite</option><option value="AR">Argentine</option><option value="AM">Arménie</option><option value="AW">Aruba</option><option value="AU">Australie</option><option value="AT">Autriche</option><option value="AZ">Azerbaïdjan</option><option value="BS">Bahamas</option><option value="BH">Bahreïn</option><option value="BD">Bangladesh</option><option value="BB">Barbade</option><option value="BY">Bélarus</option><option value="BZ">Belize</option><option value="BJ">Bénin</option><option value="BM">Bermudes</option><option value="BT">Bhoutan</option><option value="BO">Bolivie</option><option value="BA">Bosnie-Herzégovine</option><option value="BW">Botswana</option><option value="BR">Brésil</option><option value="BN">Brunéi Darussalam</option><option value="BG">Bulgarie</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodge</option><option value="CM" selected="">Cameroun</option><option value="CV">Cap-vert</option><option value="CL">Chili</option><option value="CN">Chine</option><option value="CY">Chypre</option><option value="CO">Colombie</option><option value="KM">Comores</option><option value="CR">Costa Rica</option><option value="CI">Côte d'Ivoire</option><option value="HR">Croatie</option><option value="CU">Cuba</option><option value="DK">Danemark</option><option value="DJ">Djibouti</option><option value="DM">Dominique</option><option value="EG">Égypte</option><option value="SV">El Salvador</option><option value="AE">Émirats Arabes Unis</option><option value="EC">Équateur</option><option value="ER">Érythrée</option><option value="ES">Espagne</option><option value="EE">Estonie</option><option value="FM">États Fédérés de Micronésie</option><option value="US">États-Unis</option><option value="ET">Éthiopie</option><option value="RU">Fédération de Russie</option><option value="FJ">Fidji</option><option value="FI">Finlande</option><option value="GA">Gabon</option><option value="GM">Gambie</option><option value="GS">Géorgie du Sud et les Îles Sandwich du Sud</option><option value="GE">Géorgie</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Grèce</option><option value="GD">Grenade</option><option value="GL">Groenland</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GQ">Guinée Équatoriale</option><option value="GW">Guinée-Bissau</option><option value="GN">Guinée</option><option value="GY">Guyana</option><option value="GF">Guyane Française</option><option value="HT">Haïti</option><option value="HN">Honduras</option><option value="HK">Hong-Kong</option><option value="HU">Hongrie</option><option value="BV">Île Bouvet</option><option value="CX">Île Christmas</option><option value="IM">Île de Man</option><option value="NF">Île Norfolk</option><option value="FK">Îles (malvinas) Falkland</option><option value="AX">Îles Åland</option><option value="KY">Îles Caïmanes</option><option value="CC">Îles Cocos (Keeling)</option><option value="CK">Îles Cook</option><option value="FO">Îles Féroé</option><option value="HM">Îles Heard et Mcdonald</option><option value="MP">Îles Mariannes du Nord</option><option value="MH">Îles Marshall</option><option value="UM">Îles Mineures Éloignées des États-Unis</option><option value="SB">Îles Salomon</option><option value="TC">Îles Turks et Caïques</option><option value="VG">Îles Vierges Britanniques</option><option value="VI">Îles Vierges des États-Unis</option><option value="IN">Inde</option><option value="ID">Indonésie</option><option value="IQ">Iraq</option><option value="IE">Irlande</option><option value="IS">Islande</option><option value="IL">Israël</option><option value="IT">Italie</option><option value="LY">Jamahiriya Arabe Libyenne</option><option value="JM">Jamaïque</option><option value="JP">Japon</option><option value="JO">Jordanie</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KG">Kirghizistan</option><option value="KI">Kiribati</option><option value="KW">Koweït</option><option value="MK">L'ex-République Yougoslave de Macédoine</option><option value="LS">Lesotho</option><option value="LV">Lettonie</option><option value="LB">Liban</option><option value="LR">Libéria</option><option value="LI">Liechtenstein</option><option value="LT">Lituanie</option><option value="LU">Luxembourg</option><option value="MO">Macao</option><option value="MG">Madagascar</option><option value="MY">Malaisie</option><option value="MW">Malawi</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malte</option><option value="MA">Maroc</option><option value="MQ">Martinique</option><option value="MU">Maurice</option><option value="MR">Mauritanie</option><option value="YT">Mayotte</option><option value="MX">Mexique</option><option value="MC">Monaco</option><option value="MN">Mongolie</option><option value="MS">Montserrat</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibie</option><option value="NR">Nauru</option><option value="NP">Népal</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigéria</option><option value="NU">Niué</option><option value="NO">Norvège</option><option value="NC">Nouvelle-Calédonie</option><option value="NZ">Nouvelle-Zélande</option><option value="OM">Oman</option><option value="UG">Ouganda</option><option value="UZ">Ouzbékistan</option><option value="PK">Pakistan</option><option value="PW">Palaos</option><option value="PA">Panama</option><option value="PG">Papouasie-Nouvelle-Guinée</option><option value="PY">Paraguay</option><option value="NL">Pays-Bas</option><option value="PE">Pérou</option><option value="PH">Philippines</option><option value="PN">Pitcairn</option><option value="PL">Pologne</option><option value="PF">Polynésie Française</option><option value="PR">Porto Rico</option><option value="PT">Portugal</option><option value="QA">Qatar</option><option value="SY">République Arabe Syrienne</option><option value="CF">République Centrafricaine</option><option value="KR">République de Corée</option><option value="MD">République de Moldova</option><option value="CD">République Démocratique du Congo</option><option value="LA">République Démocratique Populaire Lao</option><option value="DO">République Dominicaine</option><option value="CG">République du Congo</option><option value="IR">République Islamique d'Iran</option><option value="KP">République Populaire Démocratique de Corée</option><option value="CZ">République Tchèque</option><option value="TZ">République-Unie de Tanzanie</option><option value="RE">Réunion</option><option value="RO">Roumanie</option><option value="GB">Royaume-Uni</option><option value="RW">Rwanda</option><option value="EH">Sahara Occidental</option><option value="KN">Saint-Kitts-et-Nevis</option><option value="SM">Saint-Marin</option><option value="PM">Saint-Pierre-et-Miquelon</option><option value="VA">Saint-Siège (état de la Cité du Vatican)</option><option value="VC">Saint-Vincent-et-les Grenadines</option><option value="SH">Sainte-Hélène</option><option value="LC">Sainte-Lucie</option><option value="AS">Samoa Américaines</option><option value="WS">Samoa</option><option value="ST">Sao Tomé-et-Principe</option><option value="SN">Sénégal</option><option value="CS">Serbie-et-Monténégro</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapour</option><option value="SK">Slovaquie</option><option value="SI">Slovénie</option><option value="SO">Somalie</option><option value="SD">Soudan</option><option value="LK">Sri Lanka</option><option value="SE">Suède</option><option value="SR">Suriname</option><option value="SJ">Svalbard et Île Jan Mayen</option><option value="SZ">Swaziland</option><option value="TJ">Tadjikistan</option><option value="TW">Taïwan</option><option value="TD">Tchad</option><option value="TF">Terres Australes Françaises</option><option value="IO">Territoire Britannique de l'Océan Indien</option><option value="PS">Territoire Palestinien Occupé</option><option value="TH">Thaïlande</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinité-et-Tobago</option><option value="TN">Tunisie</option><option value="TM">Turkménistan</option><option value="TR">Turquie</option><option value="TV">Tuvalu</option><option value="UA">Ukraine</option><option value="UY">Uruguay</option><option value="VU">Vanuatu</option><option value="VE">Venezuela</option><option value="VN">Viet Nam</option><option value="WF">Wallis et Futuna</option><option value="YE">Yémen</option><option value="ZM">Zambie</option><option value="ZW">Zimbabwe</option></select></div>
+<div id="pagedivpaysdropdown">Pays: <?php echo $country; ?></div>
 <div id="pagedivregiondropdown" class="hidden">Région/Province: <select id="pageregiondropdown" name="regiondropdown" size="1" onchange="loadxml('region', this.value, 'page')">
 <option value="">Veuillez choisir</option>
 </select></div>
-<div id="pagedivregiontext">Région/Province: <input type="text" id="pageregiontext" name="regiontext" length="25" value="littoral"></div>
-<div id="pagedivdepartementdropdown" class="hidden">Département: <select id="pagedepartementdropdown" name="departementdropdown" size="1" onchange="loadxml('departement', this.value, 'page')">
-<option value="">Veuillez choisir</option>
-</select></div>
-<div id="pagedivvilledropdown" class="hidden">Ville: <select id="pagevilledropdown" name="villedropdown">
-<option value="">Veuillez choisir</option>
-</select></div>
-<div id="pagedivvilletext">Ville: <input type="text" id="pagevilletext" name="villetext" length="25" value="Douala"></div>
-<div id="pagedivattente" class="hidden">Mise à jour du formulaire...</div>
+<div id="pagedivregiontext">Région/Province: <input type="text" id="pageregiontext" name="regiontext" length="25" value="<?php echo $profile->region; ?>"></div>
+
+
+<div id="pagedivvilletext">Ville: <input type="text" id="pagevilletext" name="villetext" length="25" value="<?php echo $profile->town; ?>"></div>
+
 </td>
 </tr>
 <tr>
-<td align="right" width="190" valign="top"><span class="descriptor">Votre titre ou slogan*:</span></td><td align="left"><input type="text" name="ins_titre" value="Etre heureux" size="75" maxlength="100"></td>
+<td align="right" width="190" valign="top"><span class="descriptor">Votre titre ou slogan*:</span></td><td align="left">
+<input type="text" name="title" value="<?php echo $profile->title; ?>" size="75" maxlength="100"></td>
 </tr>
 <tr>
-<td align="right" width="190" valign="top"><span class="descriptor">À propos de vous*:</span></td><td align="left"><b>Pas de description vulgaire ou à caractère sexuel</b><br><textarea name="ins_apropos" cols="65" rows="10">Sympa et cool, rien que ca pour me decrire ...</textarea></td>
+<td align="right" width="190" valign="top"><span class="descriptor">À propos de vous*:</span></td><td align="left"><b>Pas de description vulgaire ou à caractère sexuel</b><br>
+<textarea name="description" cols="65" rows="10"><?php echo $profile->description; ?></textarea></td>
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Passe-temps*:</span></td>
 <td>
 Un seul mot par case<br>
-<input type="text" name="ins_passetemps[]" value="musique" size="10" maxlength="255" style="margin-bottom: 5px;">
-<input type="text" name="ins_passetemps[]" value="internet" size="10" maxlength="255" style="margin-bottom: 5px;">
-<input type="text" name="ins_passetemps[]" value="facebook" size="10" maxlength="255" style="margin-bottom: 5px;">
-<input type="text" name="ins_passetemps[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
-<input type="text" name="ins_passetemps[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
-<br><input type="text" name="ins_passetemps[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
-<input type="text" name="ins_passetemps[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
-<input type="text" name="ins_passetemps[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
-<input type="text" name="ins_passetemps[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
-<input type="text" name="ins_passetemps[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="musique" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="internet" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="facebook" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
+<br><input type="text" name="hobbies[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
+<input type="text" name="hobbies[]" value="" size="10" maxlength="255" style="margin-bottom: 5px;">
 </td>
 </tr>
 <tr>
-<td align="right" width="190" valign="top"><span class="descriptor">Emploi / Travail ou Occupation*:</span></td><td align="left"><input type="text" name="ins_occupation" value="Informaticien" size="75" maxlength="100">
+<td align="right" width="190" valign="top"><span class="descriptor">Emploi / Travail ou Occupation*:</span></td><td align="left">
+<input type="text" name="job" value="<?php echo $profile->job; ?>" size="75" maxlength="100">
 </td>
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Poids*:</span></td><td align="left">
-<input type="text" name="ins_poids2" value="75" size="5" maxlength="5"> <input type="radio" name="ins_poids_type" value="kg" checked="checked"> kgs <input type="radio" name="ins_poids_type" value="lbs"> lbs
+<input type="text" name="weight" value="<?php echo $profile->weight; ?>" size="5" maxlength="5"> <input type="radio" name="ins_poids_type" value="kg" checked="checked"> kgs <input type="radio" name="ins_poids_type" value="lbs"> lbs
 </td>
 </tr>
 <tr>
@@ -375,7 +418,7 @@ Un seul mot par case<br>
 </tr>
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Couleur de cheveux*:</span></td><td align="left"><select name="ins_couleurcheveux" size="1">
-<option value="0">Aucune réponse</option>
+<option value="">Aucune réponse</option>
 <option value="1">Bruns</option>
 <option value="2">Chatains</option>
 <option value="3" selected="">Noirs</option>
@@ -386,6 +429,8 @@ Un seul mot par case<br>
 </select>
 </td>
 </tr>
+
+<!--
 <tr>
 <td align="right" width="190" valign="top"><span class="descriptor">Intérêts:</span></td>
 <td>
@@ -910,6 +955,7 @@ Un seul mot par case<br>
 <option value="3">Oui, peu importe le pays</option>
 </select></td>
 </tr>
+-->
 <tr>
 <td align="right" width="190" valign="top"></td><td align="left"><input type="submit" value="Soumettre"></td>
 </tr>

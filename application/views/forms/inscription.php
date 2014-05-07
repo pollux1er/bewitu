@@ -48,19 +48,17 @@ Site de rencontre 100% gratuit!
 		<td align="left">
 			<div id="pagedivpaysdropdown">Pays: 
 			<input type="hidden" value="<?php echo set_value('pays'); ?>" name="pays"><?php echo $country; ?></div>
-			<div id="pagedivregiontext">
-			Région/Province: <input type="text" value="<?php echo set_value('region'); ?>" length="25" name="region" id="region"></div>
+			<div id="pagedivregiontext">Région/Province: <input type="text" value="<?php echo set_value('region'); ?>" length="25" name="region" id="region"></div>
 			
-			<div id="pagedivvilletext">
-			Ville: <input type="text" value="<?php echo set_value('ville'); ?>" length="25" name="ville" id="ville"></div>
+			<div id="pagedivvilletext">Ville: <input type="text" value="<?php echo set_value('ville'); ?>" length="25" name="ville" id="ville"></div>
 		</td>
 	</tr>
 	<tr>
 		<td width="220" valign="top" align="right"><span class="descriptor">Date d'aniversaire</span></td><td align="left">
 		<select size="1" name="birthdate-d">
-		<option value="01" <?php echo set_select('birthdate-d', '01'); ?>>01</option>
-		<option value="02" <?php echo set_select('birthdate-d', '02'); ?>>02</option>
-		<option value="03" <?php echo set_select('birthdate-d', '03'); ?>>03</option>
+		<option value="01">01</option>
+		<option value="02">02</option>
+		<option value="03">03</option>
 		<option value="04">04</option>
 		<option value="05">05</option>
 		<option value="06">06</option>

@@ -9,9 +9,9 @@ Inscription gratuite : étape 2
 		<table class="standardtable">
 		<tbody><tr>
 		<td width="150" valign="top" align="right"><span class="descriptor">Vous recherchez :</span></td><td align="left">
-		<input type="radio" value="hetero" name="orientation" <?php echo set_radio('orientation', 'hetero'); ?>> Une femme<br>
-		<input type="radio" value="homo" name="orientation" <?php echo set_radio('orientation', 'hotero'); ?>> Un homme<br>
-		<input type="radio" value="bi" name="orientation" <?php echo set_radio('orientation', 'bi'); ?>> Les deux<br>
+		<input type="radio" value="female" name="orientation" <?php echo set_radio('orientation', 'female', true); ?>> Une femme<br>
+		<input type="radio" value="male" name="orientation" <?php echo set_radio('orientation', 'male'); ?>> Un homme<br>
+		<input type="radio" value="both" name="orientation" <?php echo set_radio('orientation', 'both'); ?>> Les deux<br>
 		<?php echo form_error('orientation'); ?>
 		</td>
 		</tr>
@@ -25,9 +25,9 @@ Inscription gratuite : étape 2
 		</tr>
 		<tr>
 		<td width="150" valign="top" align="right"><span class="descriptor">État civil</span></td><td align="left">
-		<input type="radio" value="single" name="etatcivil" <?php echo set_radio('etatcivil', 'single', true); ?>> Célibataire<br>
-		<input type="radio" value="couple" name="etatcivil" <?php echo set_radio('etatcivil', 'couple'); ?>> En relation<br>
-		<input type="radio" value="married" name="etatcivil" <?php echo set_radio('etatcivil', 'married'); ?>> Marié(e)<br>
+		<input type="radio" value="single" name="civil_status" <?php echo set_radio('etatcivil', 'single', true); ?>> Célibataire<br>
+		<input type="radio" value="couple" name="civil_status" <?php echo set_radio('etatcivil', 'couple'); ?>> En relation<br>
+		<input type="radio" value="married" name="civil_status" <?php echo set_radio('etatcivil', 'married'); ?>> Marié(e)<br>
 		<?php echo form_error('etatcivil'); ?>
 		</td>
 		</tr>
@@ -88,16 +88,16 @@ Inscription gratuite : étape 2
 		</tr>
 		<tr>
 		<td width="150" valign="top" align="right"><span class="descriptor">Passe-temps</span></td><td align="left"><b>Un seul mot clé par case svp</b><br>
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="<?php echo set_value('pseudo'); ?>" name="passetemps[]">
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
-		<br><input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
-		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="ins_passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="<?php  ?>" name="passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
+		<br><input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
+		<input type="text" style="margin-bottom: 5px;" maxlength="255" size="12" value="" name="passetemps[]">
 		</td>
 		</tr>
 		<tr>
@@ -317,35 +317,35 @@ Inscription gratuite : étape 2
 		<td width="150" valign="top" align="right"><span class="descriptor">Ethnicité</span></td><td align="left">
 		<select size="1" name="ethnicity">
 		<option value="">Veuillez choisir</option>
-		<option value="1"> Blanc / Caucasien
-		</option><option value="2"> Noir / Africain
-		</option><option value="3"> Arabe / Moyen Orient
-		</option><option value="4"> Hispanique / Latino
-		</option><option value="5"> Asiatique
-		</option><option value="6"> Indien
-		</option><option value="7"> Métisse / Mélange
-		</option><option value="8"> Autre
+		<option value="Blanc"> Blanc / Caucasien
+		</option><option value="Africain"> Noir / Africain
+		</option><option value="Arabe"> Arabe / Moyen Orient
+		</option><option value="Latino"> Hispanique / Latino
+		</option><option value="Asiatique"> Asiatique
+		</option><option value="Indien"> Indien
+		</option><option value="Métisse"> Métisse / Mélange
+		</option><option value="Autre"> Autre
 		</option></select></td>
 		</tr>
 		<tr>
 		<td width="150" valign="top" align="right"><span class="descriptor">Couleur de yeux</span></td><td align="left"><select size="1" name="eye_color">
 		<option value="">Veuillez choisir</option>
-		<option value="1"> Marrons / Bruns
-		</option><option value="2"> Bleus
-		</option><option value="3"> Verts
-		</option><option value="4"> Noirs
+		<option value="Marrons"> Marrons / Bruns
+		</option><option value="Bleus"> Bleus
+		</option><option value="Verts"> Verts
+		</option><option value="Noirs"> Noirs
 		</option></select></td>
 		</tr>
 		<tr>
 		<td width="150" valign="top" align="right"><span class="descriptor">Couleur de cheveux</span></td><td align="left"><select size="1" name="hair_color">
 		<option value="">Veuillez choisir</option>
-		<option value="1"> Bruns
-		</option><option value="2"> Chatains
-		</option><option value="3"> Noirs
-		</option><option value="4"> Blonds
-		</option><option value="5"> Roux
-		</option><option value="6"> Gris
-		</option><option value="7"> Rasé
+		<option value="Bruns"> Bruns
+		</option><option value="Chatains"> Chatains
+		</option><option value="Noirs"> Noirs
+		</option><option value="Blonds"> Blonds
+		</option><option value="Roux"> Roux
+		</option><option value="Gris"> Gris
+		</option><option value="Rasé"> Rasé
 		</option></select></td>
 		</tr>
 		<tr>

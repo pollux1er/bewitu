@@ -225,7 +225,6 @@ class Profile extends CI_Controller {
 			// Whoops, we don't have a page for that!
 			show_404();
 		}
-		$this->load->model('user');
 		
 		if($this->session->userdata('pseudo'))
 			if(!$this->user->check_activated())
@@ -233,7 +232,37 @@ class Profile extends CI_Controller {
 			
 		$this->load->library('form_validation');
 		
+		$this->form_validation->set_error_delimiters('<span class="erreurs">', '</span>'); 
+		$this->form_validation->set_rules('sexuality', 'sexuality', 'required', 'Veuillez preciser votre orientation sexuelle...');
 		$profile = $this->user->get_profile($id);
+		
+		if($this->input->server('REQUEST_METHOD') == 'POST') {
+				$user_data = array('sex' => $this->session->userdata('sex'),
+									'birthdate'     => $this->input->post('birthdate-y') . "-" . $this->input->post('birthdate-m') . "-" . $this->input->post('birthdate-d'),
+									'sex'     => $this->input->post('sex'),
+								   'ville'     => $this->input->post('ville'),
+								   'region'     => $this->input->post('region'),
+								   'title'     => $this->input->post('title'),
+								   'birthdate'     => $this->input->post('birthdate-y') . "-" . $this->input->post('birthdate-m') . "-" . $this->input->post('birthdate-d'),
+								   'description'     => $this->input->post('description'),
+                   
+									'country' => $this->session->userdata('country'),
+									'civil_status' => $this->input->post('civil_status'),
+									'sexuality' => $this->input->post('sexuality'),
+									'looking_for' => $this->input->post('looking_for'),
+									'job' => $this->input->post('job'),
+									'eye_color' => $this->input->post('eye_color'),
+									'hair_color' => $this->input->post('hair_color'),
+									'ethnicity' => $this->input->post('ethnicity'),
+									'home_country' => $this->input->post('home_country'),
+									'height_m' => $this->input->post('height_m'),
+									'height_cm' => $this->input->post('height_cm'),
+									'weight' => $this->input->post('weight'),
+									'appearance' => $this->input->post('appearance'),
+									'hobbies' => $this->input->post('hobbies'),
+									);
+				$result = $this->user->save_user_profile($user_data);
+		}
 		
 		if(empty($profile))
 			redirect( base_url() );
@@ -244,7 +273,7 @@ class Profile extends CI_Controller {
 		
 		$data['all'] = $this->nbusers;
 		$data['online'] = $this->onlineusers;
-			
+		$data['country'] = $this->user->get_user_country(); 	
 		$this->load->view('templates/header', $data);
 		
 		$this->load->view('profile_modify', $data);

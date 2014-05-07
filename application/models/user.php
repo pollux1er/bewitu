@@ -35,7 +35,7 @@ class User extends CI_Model {
 										`region` ,`town` ,`birthdate` ,`title` ,`description` ,
 										`civil_status` ,`sexuality` ,`looking_for` ,`job` ,
 										`eye_color` ,`hair_color` ,`ethnicity` , `home_country` ,
-										`weight` , `height_m` , `height_cm` ) 
+										`weight` , `height_m` , `height_cm`,  `hobbies`) 
 				VALUES (".$this->db->escape($data['appearance']).", ".$this->db->escape($data['sex']).",
 						".$this->db->escape($data['country']).", ".$this->db->escape($data['region']).", 
 						".$this->db->escape($data['town']).", ".$this->db->escape($data['birthdate']).", 
@@ -45,7 +45,7 @@ class User extends CI_Model {
 						".$this->db->escape($data['eye_color']).", ".$this->db->escape($data['hair_color']).", 
 						".$this->db->escape($data['ethnicity']).", ".$this->db->escape($data['home_country']).", 
 						".$this->db->escape($data['weight']).", ".$this->db->escape($data['height_m']).", 
-						".$this->db->escape($data['height_cm']).")";
+						".$this->db->escape($data['height_cm']).", ".$this->db->escape(implode(",", $data['hobbies'])).")";
 		//var_dump($sql); die;
 		$this->db->query($sql);
 		
@@ -265,9 +265,19 @@ class User extends CI_Model {
 	
 	public function delete_picture($id)
 	{
-		$sql = "UPDATE pictures SET deleted = 1 WHERE id = " . $this->db->escape($id);
+		$sql = "UPDATE pictures SET deleted = 1 WHERE id = " . $this->db->escape($id). " AND user_id = " . $this->session->userdata('user_id');
 		
 		$this->db->query($sql);
+	}
+	
+	public function default_picture($id)
+	{
+		$sql = "UPDATE pictures SET default_pic = 1 WHERE id = " . $this->db->escape($id) . " AND user_id = " . $this->session->userdata('user_id');
+		
+		$sql2 = "UPDATE pictures SET default_pic = 0 WHERE id NOT IN ( " . $this->db->escape($id) . " ) AND user_id = " . $this->session->userdata('user_id');
+		
+		$this->db->query($sql);
+		$this->db->query($sql2);
 	}
 	
 	public function get_pictures($user_id)
@@ -447,20 +457,26 @@ class User extends CI_Model {
 	{
 		$members = array();
 		
-		$query = $this->db->query("SELECT u.pseudo, p.title, p.sex, YEAR(CURDATE()) - YEAR(p.birthdate) AS age, pic.approved, 
-											p.town, p.country, p.civil_status, p.looking_for, p.sexuality, p.description, p.region, 
-											pic.thumb_location, pic.default_pic 
+		$query = $this->db->query("SELECT u.pseudo, p.title, p.sex, YEAR(CURDATE()) - YEAR(p.birthdate) AS age, p.profile_id, 
+											p.town, p.country, p.civil_status, p.looking_for, p.sexuality, p.description, p.region 
 									FROM users u 
-									LEFT JOIN profile p ON p.profile_id = u.profile_id 
-									LEFT JOIN pictures pic ON pic.user_id = p.profile_id  
-									WHERE u.activated = 1 AND pic.approved = 1 AND  pic.deleted = 0
+									LEFT JOIN profile p ON p.profile_id = u.profile_id      
+									WHERE u.activated = 1 
 									GROUP BY u.pseudo  
 									ORDER BY u.last_activity DESC 
 									");
 		
 		foreach ($query->result() as $row)
 		{
-			$members[] = $row;			
+			
+			$im = "SELECT id, user_id, default_pic, approved, thumb_location 
+												FROM pictures WHERE deleted = 0 AND approved = 1 AND user_id = ". $this->db->escape($row->profile_id)." ORDER BY default_pic DESC 
+												LIMIT 1";
+			$qu = $this->db->query($im);
+			
+			$image = $qu->row();
+			$row->thumb_location = $image->thumb_location;
+			$members[] = $row;
 		}
 		
 		return $members;
@@ -498,10 +514,6 @@ class User extends CI_Model {
 		$this->db->query($sql);
 	}
 	
-	public function display_photo()
-	{
-	}
-	
 	public function check_session()
 	{
 		if($this->session->userdata('connected') == 1)
@@ -513,7 +525,7 @@ class User extends CI_Model {
 	public function get_user_country()
 	{
 		$sql = 'SELECT 
-	            c.country 
+	            c.country, c.country_fr  
 	        FROM 
 	            ip2nationCountries c,
 	            ip2nation i 
@@ -528,6 +540,9 @@ class User extends CI_Model {
 		$query = $this->db->query($sql);
 		
 		$row = $query->row();
+		
+		if($row->country_fr != '')
+			$row->country = $row->country_fr;
 	
 		return $row->country;
 	}
